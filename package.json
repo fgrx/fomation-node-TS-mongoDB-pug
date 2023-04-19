@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
-    "dev": "nodemon ./src/app.ts"
+    "start": "NODE_ENV=prod node ./dist/app.js",
+    "dev": "NODE_ENV=dev nodemon ./src/app.ts"
   },
   "license": "ISC",
   "devDependencies": {

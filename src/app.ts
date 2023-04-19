@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 
 const app = express();
 
-dotenv.config();
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 createRouter(app);
 
