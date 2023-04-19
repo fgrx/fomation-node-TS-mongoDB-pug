@@ -1,12 +1,15 @@
 import express from "express";
 import createRouter from "./router";
+import dotenv from "dotenv";
 
 const app = express();
 
+dotenv.config();
+
 createRouter(app);
 
-const defaultPort = 3000;
+const port = process.env.PORT || 4000;
 
-app.listen(defaultPort, () => {
-  console.log(`Serveur lancé sur le port ${defaultPort}`);
+app.listen(port, () => {
+  console.log(`Serveur lancé sur le port ${port} !`);
 });
