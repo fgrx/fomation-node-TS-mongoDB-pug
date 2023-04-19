@@ -1,11 +1,6 @@
-html 
-    head 
-        title
-            Rando38 
-        link(href="/public/css/main.css" rel="stylesheet")
-    body 
-        .container
-            h1=message
-            button.btn.btn-primary(type=button) Test de bouton
+extends layout
+
+block content
+    h1=message
+    button.btn.btn-primary(type=button) Test de bouton
     
-    script(src="/bootstrap/js/bootstrap.bundle.min.js")

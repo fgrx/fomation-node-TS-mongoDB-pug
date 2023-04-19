@@ -1,0 +1,14 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title
+            Rando38
+        link(href="/public/css/main.css" rel="stylesheet")
+    body
+        include ./partials/navbar.pug
+        
+        .container.py-4
+            block content 
+
+        include ./partials/footer.pug
