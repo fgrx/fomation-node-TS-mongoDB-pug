@@ -8,6 +8,9 @@ const app = express();
 app.set("views", "./src/views");
 app.set("view engine", "pug");
 
+//Pour utiliser Bootstrap
+app.use("/bootstrap", express.static("./node_modules/bootstrap/dist"));
+
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 createRouter(app);
