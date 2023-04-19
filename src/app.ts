@@ -1,25 +1,9 @@
-import express, { Router } from "express";
+import express from "express";
+import createRouter from "./router";
 
 const app = express();
 
-const router = Router();
-
-router.get("/", (req, res) => {
-  res.send(
-    `
-        <html>
-            <head>
-                <title>Ma première application Nodejs</title>
-            </head>
-            <body>
-                <h1>Hello World !</h1>
-            </body>
-        </html>
-    `
-  );
-});
-
-app.use(router);
+createRouter(app);
 
 const defaultPort = 3000;
 
