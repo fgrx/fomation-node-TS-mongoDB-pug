@@ -11,6 +11,9 @@ app.set("view engine", "pug");
 //Pour utiliser Bootstrap
 app.use("/bootstrap", express.static("./node_modules/bootstrap/dist"));
 
+//Customization de Bootstrap
+app.use("/public", express.static("./public"));
+
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 createRouter(app);
