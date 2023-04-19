@@ -1,5 +1,6 @@
 .card
-    img(src=hike.image||"/public/img/default.png", alt="Photo de la randonnée")
+    a(href=`/hike/${hike.slug}`)
+        img(src=hike.image||"/public/img/default.png", alt="Photo de la randonnée", width="100%")
     .card-body 
         h3.card-title=hike.title
         p.card-text=`Durée : ${hike.duration} minutes - distance : ${hike.distance} km`

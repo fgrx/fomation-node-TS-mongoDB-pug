@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    article
+        header 
+            h1=hike.title
+        section
+            .row.grid
+                .col 
+                    img(src=hike.image||"/public/img/default.png", alt="", width="100%")
+                .col
+                    h2 Détails
+                    ul  
+                        li Difficulté : #{hike.difficulty}
+                        li Distance : #{hike.distance} km
+                        li Durée : #{hike.duration} minutes
+                        li départ de : #{hike.start} (#{hike.postCode})
+                        li Est-ce un boucle ? #{hike.loop?"oui":"non"}
+
+                    if hike.isTop
+                        img(src="/public/img/star.svg", alt="Etoile")
+                        |Randonnée recommandée par l'équipe !
+            
+            .py-4 
+                h2 Description 
+                div=hike.description
