@@ -4,6 +4,10 @@ import dotenv from "dotenv";
 
 const app = express();
 
+//Pour indiquer à Express d'utiliser pug
+app.set("views", "./src/views");
+app.set("view engine", "pug");
+
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 createRouter(app);
