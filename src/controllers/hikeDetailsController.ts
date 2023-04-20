@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { hikeRepository } from "../repositories/hikeRepository";
 
-const hikeDetailController = (req: Request, res: Response) => {
+const hikeDetailController = async (req: Request, res: Response) => {
   const slug = req.params.slug;
-  const hike = hikeRepository.getHikeBySlug(slug);
+  const hike = await hikeRepository.getHikeBySlug(slug);
 
   if (!hike) {
     res.render("page", {

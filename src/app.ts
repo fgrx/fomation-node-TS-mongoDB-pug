@@ -1,7 +1,7 @@
 import express from "express";
 import createRouter from "./router";
 import dotenv from "dotenv";
-import { connectDB } from "./dbConnexion";
+import { connectDB } from "./db/dbConnexion";
 
 const app = express();
 
