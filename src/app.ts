@@ -1,6 +1,7 @@
 import express from "express";
 import createRouter from "./router";
 import dotenv from "dotenv";
+import { connectDB } from "./dbConnexion";
 
 const app = express();
 
@@ -15,6 +16,9 @@ app.use("/bootstrap", express.static("./node_modules/bootstrap/dist"));
 app.use("/public", express.static("./public"));
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+
+//Connexion à la BDD
+connectDB();
 
 createRouter(app);
 
