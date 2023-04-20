@@ -4,7 +4,9 @@ import { Hike } from "../interfaces/hike";
 const hikeRepository = {
   getHikes: (start: number, limit: number): Hike[] => {
     const hikes = hikeData as Hike[];
-    return hikes.slice(start, limit);
+    const end = start + limit;
+
+    return hikes.slice(start, end);
   },
 
   getHikeBySlug: (slug: string): Hike | false => {
@@ -15,6 +17,10 @@ const hikeRepository = {
     if (!hike) return false;
 
     return hike;
+  },
+
+  getNumberOfHikes: (): number => {
+    return hikeData.length;
   },
 };
 

@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    article
+        header 
+            h1=title
+        section
+            .row.row-cols-1.row-cols-md-3.g-4
+                each hike in hikes
+                    .col
+                        include ./partials/hikeItem.pug
+
+    nav
+        .my-4.text-center
+            if prevPage
+                a(href=prevPage).btn.btn-primary.me-2 << Page précédente
+            if nextPage
+                a(href=nextPage).btn.btn-primary.ms-2 Page suivante >>
