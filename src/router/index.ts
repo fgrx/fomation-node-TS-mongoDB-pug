@@ -4,6 +4,7 @@ import { homeController } from "../controllers/homeController";
 import { hikeDetailController } from "../controllers/hikeDetailsController";
 import { useRouteError } from "../middlewares/routeError";
 import { hikesController } from "../controllers/hikesController";
+import { hikeSearchController } from "../controllers/hikeSearchController";
 
 const createRouter = (app: Application) => {
   const router = Router();
@@ -16,6 +17,8 @@ const createRouter = (app: Application) => {
 
   router.get("/hikes", hikesController);
   router.get("/hikes/:page", hikesController);
+
+  router.post("/search", hikeSearchController);
 
   app.use(router);
 

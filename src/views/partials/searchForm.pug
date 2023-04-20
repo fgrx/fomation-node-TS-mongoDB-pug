@@ -1,0 +1,30 @@
+h2.my-3 Trouvez votre prochaine sortie
+
+form(action="/search" method="POST")
+    .row.mb-3 
+        .col-sm-2
+            label.form-label(for="difficulty") Difficulté
+        .col-sm-10
+            select.form-select#difficulty(name="difficulty")
+                option(value="easy") Facile 
+                option(value="average") Moyen 
+                option(value="hard") Difficile 
+
+    .row.mb-3
+        .col-auto
+            label.form-label Distance entre
+        .col-auto
+            input.form-control(type="text" name="distanceMin" placeholder="km")
+        .col-auto
+            | et
+        .col-auto  
+            input.form-control(type="text" name='distanceMax' placeholder="km")
+
+    .form-check.form-switch.mb-3
+        input#isLoop.form-check-input(type="checkbox" role="switch" name="isLoop")
+        label(for="isLoop").form-check-label Boucles uniquement
+
+
+    input.btn.btn-primary(type="submit" value="Rechercher")
+
+

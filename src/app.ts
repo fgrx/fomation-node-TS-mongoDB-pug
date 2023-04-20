@@ -20,6 +20,9 @@ dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 //Connexion à la BDD
 connectDB();
 
+// Indique à express d'utiliser un middleware (bodyparser) pour parser la requete
+app.use(express.urlencoded({ extended: true }));
+
 createRouter(app);
 
 const port = process.env.PORT || 4000;
