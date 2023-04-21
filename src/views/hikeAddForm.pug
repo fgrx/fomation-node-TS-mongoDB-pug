@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    h1 Ajout d'une nouvelle randonnée 
+
+    form(action="/hikes/add", method="POST") 
+        .mb-3 
+            label.form-label(for="title") Titre
+            input#title.form-control(name="title", value=defaultHike.title)
+
+        .mb-3 
+            label.form-label(for="duration") Durée
+            input#duration.form-control(name="duration" value=defaultHike.duration)
+
+        .mb-3 
+            label.form-label(for="distance") Distance
+            input#distance.form-control(name="distance" value=defaultHike.distance)
+
+        .mb-3 
+            label.form-label(for="start") Ville de départ
+            input#start.form-control(name="start" value=defaultHike.start)
+
+        .mb-3 
+            label.form-label(for="postCode") Code postal
+            input#postCode.form-control(name="postCode" value=defaultHike.postCode)
+
+        .mb-3 
+            label.form-label(for="difficulty") Difficulté
+            select#difficulty.form-select(name="difficulty")
+                    option(value="easy") Facile 
+                    option(value="medium" selected) Moyenne 
+                    option(value="hard") Difficile
+        
+        .form-check.form-switch.mb-3 
+            label.form-check-label(for="isLoop" role="switch") Cette rando fait une boucle ? 
+            input#isLoop.form-check-input(name="isLoop" type="checkbox" role="switch" checked)
+
+
+        .mb-3 
+            label.form-label(for="description") Description et itinéraire
+            textarea#description.form-control(name="description",  rows="10" )=defaultHike.description
+
+        .mb-3.text-center 
+            input.btn.btn-primary(type="submit" value="Ajouter")

@@ -18,5 +18,14 @@ const hikeRepository = {
 
   searchHikes: async (searchQuery: SearchQuery): Promise<Hike[]> =>
     await hikeModel.find(searchQuery),
+
+  addHike: async (hike: Hike): Promise<Hike | false> => {
+    try {
+      return await hikeModel.create(hike);
+    } catch (error) {
+      console.log("error", error);
+      return false;
+    }
+  },
 };
 export { hikeRepository };

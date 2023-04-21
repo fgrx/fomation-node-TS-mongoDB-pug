@@ -11,7 +11,7 @@ interface Hike {
   isTop?: boolean;
   isValid?: boolean;
   isLoop: boolean;
-  date: Date;
+  date?: Date;
 }
 
 type HikeDifficulty = "easy" | "medium" | "hard";

@@ -13,8 +13,8 @@ const hikeSchema = new Schema<Hike>({
   start: { type: String, required: true },
   isLoop: { type: Boolean },
   isTop: { type: Boolean },
-  isValid: { type: Boolean },
-  date: { type: Date },
+  isValid: { type: Boolean, default: false },
+  date: { type: Date, default: new Date() },
 });
 
 const hikeModel = mongoose.model("Hike", hikeSchema);
