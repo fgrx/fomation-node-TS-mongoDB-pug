@@ -15,7 +15,7 @@ block content
                     tr 
                         td=hike.title 
                         td
-                            a.btn.btn-primary(href=`/randonnee/${hike.slug}` target="blank") voir
+                            a.btn.btn-primary(href=`/hike/${hike.slug}` target="blank") voir
                         td
                             a.btn.btn-success.me-3(href=`/admin/valid/${hike.slug}`) 👍 Valider
                             a.btn.btn-warning(href=`/admin/delete/${hike.slug}`) ❌ supprimer
@@ -33,6 +33,6 @@ block content
                     tr 
                         td=hike.title 
                         td
-                            a.btn.btn-primary(href=`/randonnee/${hike.slug}` target="blank") voir
+                            a.btn.btn-primary(href=`/hike/${hike.slug}` target="blank") voir
                         td
                             a.btn.btn-warning(href=`/admin/delete/${hike.slug}`) ❌ supprimer
