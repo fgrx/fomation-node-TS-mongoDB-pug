@@ -6,6 +6,7 @@ import { useRouteError } from "../middlewares/routeError";
 import { hikesController } from "../controllers/hikesController";
 import { hikeSearchController } from "../controllers/hikeSearchController";
 import { hikeAddController } from "../controllers/hikeAddController";
+import upload from "../middlewares/upload";
 
 const createRouter = (app: Application) => {
   const router = Router();
@@ -15,7 +16,11 @@ const createRouter = (app: Application) => {
   router.get("/mentions-legales", legalController);
 
   router.get("/hikes/add", hikeAddController.displayForm);
-  router.post("/hikes/add", hikeAddController.validateForm);
+  router.post(
+    "/hikes/add",
+    upload.single("image"),
+    hikeAddController.validateForm
+  );
 
   router.get("/hike/:slug", hikeDetailController);
 

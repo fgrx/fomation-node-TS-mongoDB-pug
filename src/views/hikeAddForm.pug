@@ -3,21 +3,22 @@ extends layout
 block content
     h1 Ajout d'une nouvelle randonnée 
 
-    if message.type==='error'
-        .alert.alert-danger 
-            h3.alert-heading=message.title
-            p=message.description
-            if message.errors
-                ul
-                    each error in message.errors
-                        li=error
+    if message
+        if message.type==='error'
+            .alert.alert-danger 
+                h3.alert-heading=message.title
+                p=message.description
+                if message.errors
+                    ul
+                        each error in message.errors
+                            li=error
 
-    if message.type==='success'
-        .alert.alert-success 
-            h3.alert-heading=message.title
-            p=message.description
+        if message.type==='success'
+            .alert.alert-success 
+                h3.alert-heading=message.title
+                p=message.description
 
-    form(action="/hikes/add", method="POST") 
+    form(action="/hikes/add", method="POST", enctype="multipart/form-data") 
         .mb-3 
             label.form-label(for="title") Titre
             input#title.form-control(name="title", value=defaultHike.title)
@@ -49,6 +50,9 @@ block content
             label.form-check-label(for="isLoop" role="switch") Cette rando fait une boucle ? 
             input#isLoop.form-check-input(name="isLoop" type="checkbox" role="switch" checked)
 
+        .mb-3
+            label.form-label(for="image") Image de la randonnée 
+            input#image.form-control(name="image" type="file", value=defaultHike.image)
 
         .mb-3 
             label.form-label(for="description") Description et itinéraire

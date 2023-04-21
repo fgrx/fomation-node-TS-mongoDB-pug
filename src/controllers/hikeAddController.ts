@@ -17,6 +17,7 @@ const hikeAddController = {
       isLoop: true,
       description: "Magnifique randonnées avec des arbres et des ruisseaux.",
       date: new Date(),
+      image: "",
       slug: "false-slug",
     };
 
@@ -60,6 +61,7 @@ const hikeAddController = {
       difficulty,
       isLoop: isLoop === "on",
       description,
+      image: req.file ? `/public/uploads/${req.file.filename}` : undefined,
     };
 
     const createdHike = await hikeRepository.addHike(newHike);
