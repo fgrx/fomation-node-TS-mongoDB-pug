@@ -31,6 +31,11 @@ const authController = {
       }
     }
   },
+  logout(req: Request, res: Response) {
+    req.session.destroy(() => {
+      res.redirect("/login");
+    });
+  },
 };
 
 export { authController };
