@@ -1,0 +1,38 @@
+extends layout 
+block content 
+    h1 Console d'administration
+
+    h2 Randonnées à valider
+    table.table
+            thead 
+                tr
+                    th(scope="col") Titre de la randonnée
+                    th(scope="col") Voir la randonnée 
+                    th(scope="col") Opérations 
+            
+            tbody
+                each hike in invalidHikes
+                    tr 
+                        td=hike.title 
+                        td
+                            a.btn.btn-primary(href=`/randonnee/${hike.slug}` target="blank") voir
+                        td
+                            a.btn.btn-success.me-3(href=`/admin/valid/${hike.slug}`) 👍 Valider
+                            a.btn.btn-warning(href=`/admin/delete/${hike.slug}`) ❌ supprimer
+
+    h2.mt-5 Liste des randonnées
+    table.table
+            thead 
+                tr
+                    th(scope="col") Titre de la randonnée
+                    th(scope="col") Voir la randonnée 
+                    th(scope="col") Opérations 
+            
+            tbody
+                each hike in validHikes
+                    tr 
+                        td=hike.title 
+                        td
+                            a.btn.btn-primary(href=`/randonnee/${hike.slug}` target="blank") voir
+                        td
+                            a.btn.btn-warning(href=`/admin/delete/${hike.slug}`) ❌ supprimer
