@@ -3,6 +3,7 @@ import { Hike } from "../interfaces/hike";
 import slugify from "slugify";
 import { hikeRepository } from "../repositories/hikeRepository";
 import { AlertMessage } from "../interfaces/AlertMessage";
+import { hikeFormValidation } from "../services/hikeFormValidation";
 
 const hikeAddController = {
   displayForm: (req: Request, res: Response) => {
@@ -23,6 +24,21 @@ const hikeAddController = {
   },
 
   validateForm: async (req: Request, res: Response) => {
+    const { isFormValid, formErrors } = hikeFormValidation(req.body);
+
+    if (!isFormValid) {
+      const message: AlertMessage = {
+        title: "Erreur de saisie dans le formulaire",
+        description: "Les champs suivants présentent une erreur :",
+        type: "error",
+        errors: formErrors,
+      };
+
+      res.render("hikeAddForm", { message, defaultHike: req.body });
+
+      return false;
+    }
+
     const {
       title,
       duration,
