@@ -1,22 +1,32 @@
 import { Request, Response } from "express";
 import { passwordEncoder } from "../services/passwordEncode";
+import { userRepository } from "../repositories/userRepository";
+import { AlertMessage } from "../interfaces/AlertMessage";
 
 const authController = {
   showLogin: (req: Request, res: Response) => {
     res.render("login");
   },
 
-  controlCredentials: (req: Request, res: Response) => {
+  controlCredentials: async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
-    //Test de crypto pour obtenir un mot de passe
-    const encodedPassword = passwordEncoder(
-      password,
-      "NBFR658diBVFIf4d7fIUFOifjfi"
-    );
-    console.log(encodedPassword);
+    const userInDB = await userRepository.findUserByEmail(email);
 
-    res.redirect("/admin");
+    if (userInDB) {
+      const encodedPassword = passwordEncoder(password, userInDB.salt);
+
+      if (encodedPassword === userInDB.password) {
+        res.redirect("/admin");
+      } else {
+        const message: AlertMessage = {
+          title: "Problème d'authentification",
+          description: "Le couple Login / Mot de passe ne correspond pas",
+          type: "error",
+        };
+        res.render("login", { message });
+      }
+    }
   },
 };
 

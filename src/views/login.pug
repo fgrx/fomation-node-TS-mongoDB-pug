@@ -4,6 +4,8 @@ block content
 
     h1 Connexion
     
+    include ./partials/alertMessage.pug
+
     form(action="/login" method="POST")
         .mb-3 
             label.form-label(for="email") Adresse email
