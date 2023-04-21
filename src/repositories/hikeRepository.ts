@@ -9,7 +9,7 @@ interface SearchQuery {
 
 const hikeRepository = {
   getHikes: async (start: number, limit: number): Promise<Hike[]> =>
-    await hikeModel.find().skip(start).limit(limit),
+    await hikeModel.find().skip(start).limit(limit).sort({ date: -1 }),
 
   getHikeBySlug: async (slug: string): Promise<Hike | null> =>
     await hikeModel.findOne({ slug }),
@@ -17,7 +17,7 @@ const hikeRepository = {
   getNumberOfHikes: async (): Promise<number> => await hikeModel.find().count(),
 
   searchHikes: async (searchQuery: SearchQuery): Promise<Hike[]> =>
-    await hikeModel.find(searchQuery),
+    await hikeModel.find(searchQuery).sort({ date: -1 }),
 
   addHike: async (hike: Hike): Promise<Hike | false> => {
     try {
