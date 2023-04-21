@@ -17,6 +17,9 @@ const authController = {
       const encodedPassword = passwordEncoder(password, userInDB.salt);
 
       if (encodedPassword === userInDB.password) {
+        const session = req.session;
+        session.userEmail = email;
+
         res.redirect("/admin");
       } else {
         const message: AlertMessage = {
