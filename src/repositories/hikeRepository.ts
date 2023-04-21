@@ -27,5 +27,15 @@ const hikeRepository = {
       return false;
     }
   },
+
+  updateHike: async (slug: string, updates: any): Promise<boolean> => {
+    const res = await hikeModel.updateOne({ slug }, updates);
+    return res ? true : false;
+  },
+
+  deleteHike: async (slug: string): Promise<boolean> => {
+    const res = await hikeModel.deleteOne({ slug });
+    return res ? true : false;
+  },
 };
 export { hikeRepository };

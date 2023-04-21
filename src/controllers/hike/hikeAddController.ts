@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { Hike } from "../interfaces/hike";
+import { Hike } from "../../interfaces/hike";
 import slugify from "slugify";
-import { hikeRepository } from "../repositories/hikeRepository";
-import { AlertMessage } from "../interfaces/AlertMessage";
-import { hikeFormValidation } from "../services/hikeFormValidation";
+import { hikeRepository } from "../../repositories/hikeRepository";
+import { AlertMessage } from "../../interfaces/AlertMessage";
+import { hikeFormValidation } from "../../services/hikeFormValidation";
 
 const hikeAddController = {
   displayForm: (req: Request, res: Response) => {

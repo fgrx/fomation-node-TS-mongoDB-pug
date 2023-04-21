@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { Hike } from "../interfaces/hike";
-import { hikeRepository } from "../repositories/hikeRepository";
+import { Hike } from "../../interfaces/hike";
+import { hikeRepository } from "../../repositories/hikeRepository";
 
 const hikesController = async (req: Request, res: Response) => {
   const itemsPerPage = 6;
