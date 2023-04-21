@@ -3,6 +3,16 @@ extends layout
 block content
     h1 Ajout d'une nouvelle randonnée 
 
+    if message.type==='error'
+        .alert.alert-danger 
+            h3.alert-heading=message.title
+            p=message.description
+
+    if message.type==='success'
+        .alert.alert-success 
+            h3.alert-heading=message.title
+            p=message.description
+
     form(action="/hikes/add", method="POST") 
         .mb-3 
             label.form-label(for="title") Titre
