@@ -21,7 +21,7 @@ const hikeAddController = {
     res.render("hikeAddForm", { defaultHike });
   },
 
-  validateForm: (req: Request, res: Response) => {
+  validateForm: async (req: Request, res: Response) => {
     const {
       title,
       duration,
@@ -45,7 +45,8 @@ const hikeAddController = {
       description,
     };
 
-    const createdHike = hikeRepository.addHike(newHike);
+    const createdHike = await hikeRepository.addHike(newHike);
+    console.log(createdHike);
   },
 };
 
