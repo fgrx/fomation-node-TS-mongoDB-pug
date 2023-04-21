@@ -12,6 +12,7 @@ const createRouter = (app: Application) => {
   router.get("/", homeController);
   router.get("/mentions-legales", legalController);
   router.get("/login", authController.showLogin);
+  router.post("/login", authController.controlCredentials);
   app.use(router);
 
   const hikeRouter = hikeRoutes(router);
