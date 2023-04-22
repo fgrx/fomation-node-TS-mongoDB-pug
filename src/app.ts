@@ -4,11 +4,27 @@ import dotenv from "dotenv";
 import { connectDB } from "./db/dbConnexion";
 import cookieParser from "cookie-parser";
 import sessions from "express-session";
+import helmet from "helmet";
 
 const app = express();
 
 //Autorise les flux json au niveau d'express
 app.use(express.json());
+
+//Ajout d'une couche de sécurité
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "img-src": ["'self'", "images.unsplash.com"],
+      },
+    },
+  })
+);
+
+//Pour assainir les données envoyées
+app.use(require("sanitize").middleware);
 
 //Pour indiquer à Express d'utiliser pug
 app.set("views", "./src/views");
