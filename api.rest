@@ -1,0 +1,6 @@
+get http://localhost:3500/api/v1
+###
+get http://localhost:3500/api/v1/hikes
+###
+get http://localhost:3500/api/v1/hikes?start=0&limit=2
+###
