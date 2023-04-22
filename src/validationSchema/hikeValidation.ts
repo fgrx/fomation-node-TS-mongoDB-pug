@@ -11,7 +11,7 @@ const hikeValidationSchema = Joi.object({
     "string.min": "La description doit faire plus de 20 caractères",
     "string.empty": "La description doit être remplie",
   }),
-  postCode: Joi.string().min(5).max(5).required().messages({
+  postCode: Joi.number().min(9999).max(99999).required().messages({
     "any.required": "Le code postal est obligatoire",
     "string.empty": "Le code postal doit être renseigné",
     "string.min": "Le code postal doit comporter 5 nombres",

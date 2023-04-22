@@ -1,5 +1,5 @@
 interface Hike {
-  slug: string;
+  slug?: string;
   title: string;
   duration: number;
   image?: string;
