@@ -4,3 +4,15 @@ get http://localhost:3500/api/v1/hikes
 ###
 get http://localhost:3500/api/v1/hikes?start=0&limit=2
 ###
+post http://localhost:3500/api/v1/hikes
+Content-Type: application/json
+
+{
+    "title":"Randonnée de test !",
+    "difficulty":"easy",
+    "postCode":"38400",
+    "start":"Hyère sur Amby",
+    "duration":180,
+    "distance":12,
+    "description":"Randonnée de test avec une description d'au moins 20 chr !"
+}

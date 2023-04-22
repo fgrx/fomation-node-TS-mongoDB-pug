@@ -7,6 +7,9 @@ import sessions from "express-session";
 
 const app = express();
 
+//Autorise les flux json au niveau d'express
+app.use(express.json());
+
 //Pour indiquer à Express d'utiliser pug
 app.set("views", "./src/views");
 app.set("view engine", "pug");

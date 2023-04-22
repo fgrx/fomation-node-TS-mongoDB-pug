@@ -1,5 +1,6 @@
 import { Router } from "express";
 import getHikes from "./hike/getHikes";
+import addHike from "./hike/addHike";
 
 const apiV1 = (): Router => {
   const router = Router();
@@ -11,6 +12,7 @@ const apiV1 = (): Router => {
   });
 
   router.use(getHikes(baseUrl));
+  router.use(addHike(baseUrl));
 
   return router;
 };
