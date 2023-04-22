@@ -4,6 +4,8 @@ get http://localhost:3500/api/v1/hikes
 ###
 get http://localhost:3500/api/v1/hikes?start=0&limit=2
 ###
+get http://localhost:3500/api/v1/search?isLoop=true&difficulty=easy&distanceMin=5&distanceMax=17
+###
 post http://localhost:3500/api/v1/hikes
 Content-Type: application/json
 

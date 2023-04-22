@@ -4,7 +4,6 @@ import Joi from "joi";
 const validateSchema =
   (schema: Joi.Schema) => (req: Request, res: Response, next: NextFunction) => {
     const form = req.body;
-
     const { error } = schema.validate(form);
 
     if (error) {
