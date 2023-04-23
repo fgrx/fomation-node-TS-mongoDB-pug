@@ -33,3 +33,9 @@ Content-Type: application/json
     "email":"admin@gmail.com",
     "password":"123456"
 }
+
+###
+get http://localhost:3500/api/v1/cluster/fast-request
+
+###
+get http://localhost:3500/api/v1/cluster/slow-request
