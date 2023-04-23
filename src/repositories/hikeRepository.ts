@@ -26,8 +26,12 @@ const hikeRepository = {
   },
 
   deleteHike: async (slug: string): Promise<boolean> => {
-    const res = await hikeModel.deleteOne({ slug });
-    return res ? true : false;
+    try {
+      const { deletedCount } = await hikeModel.deleteOne({ slug });
+      return deletedCount ? true : false;
+    } catch (error) {
+      return false;
+    }
   },
 
   addHike: async (hike: Hike): Promise<Hike | false> => {
