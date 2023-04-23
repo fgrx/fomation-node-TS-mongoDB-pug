@@ -3,7 +3,12 @@ import { User } from "../interfaces/user";
 
 const userRepository = {
   async findUserByEmail(email: string): Promise<User | false | null> {
-    return await userModel.findOne({ email });
+    try {
+      return await userModel.findOne({ email });
+    } catch (error) {
+      console.error("erreur : ", error);
+      return false;
+    }
   },
 };
 
