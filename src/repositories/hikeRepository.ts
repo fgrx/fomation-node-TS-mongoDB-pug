@@ -9,6 +9,15 @@ interface SearchQuery {
 }
 
 const hikeRepository = {
+  getHikesWithPromises: (start: number, limit: number): Promise<Hike[]> => {
+    return hikeModel
+      .find()
+      .skip(start)
+      .limit(limit)
+      .sort({ date: -1 })
+      .then((result) => result);
+  },
+
   getHikes: async (start: number, limit: number): Promise<Hike[]> =>
     await hikeModel.find().skip(start).limit(limit).sort({ date: -1 }),
 
